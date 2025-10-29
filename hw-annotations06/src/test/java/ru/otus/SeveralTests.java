@@ -2,34 +2,44 @@ package ru.otus;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import ru.otus.annotations.MyAfter;
-import ru.otus.annotations.MyBefore;
-import ru.otus.annotations.MyTest;
+import ru.otus.annotations.After;
+import ru.otus.annotations.Before;
+import ru.otus.annotations.Test;
 
 public class SeveralTests {
 
-    @MyBefore
+    @Before
     public void before() {
-        System.out.println("Test is Started ");
+        System.out.println("First Before");
     }
 
-    @MyTest
+    @Before
+    public void beforeSecond() {
+        System.out.println("Second before");
+    }
+
+    @Test
     public void test1() {
         assertThat(9 / 0).isEqualTo(9);
     }
 
-    @MyTest
+    @Test
     public void test2() {
         assertThat(1).isEqualTo(1);
     }
 
-    @MyTest
+    @Test
     public void test3() {
         assertThat(1).isEqualTo(2);
     }
 
-    @MyAfter
+    @After
     public void after() {
-        System.out.println("Test is finished");
+        System.out.println("First After");
+    }
+
+    @After
+    public void afterSecond() {
+        System.out.println("Second After");
     }
 }
