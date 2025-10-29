@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.otus.SeveralTests;
 import ru.otus.annotations.After;
 import ru.otus.annotations.Before;
 import ru.otus.annotations.Test;
@@ -62,6 +63,6 @@ public class TestRunner {
     }
 
     public static void main(String[] args) throws Exception {
-        runTests(Class.forName("ru.otus.SeveralTests"));
+        runTests(SeveralTests.class);
     }
 }
