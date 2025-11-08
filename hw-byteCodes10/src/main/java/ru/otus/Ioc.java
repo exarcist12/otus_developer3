@@ -16,16 +16,16 @@ class Ioc {
     private Ioc() {}
 
     static TestLoggingInterface createMyClass() {
-        InvocationHandler handler = new DemoInvocationHandler(new TestLogging());
+        InvocationHandler handler = new DemoInvocationHandler<TestLoggingInterface>(new TestLogging());
         return (TestLoggingInterface) Proxy.newProxyInstance(
                 Ioc.class.getClassLoader(), new Class<?>[] {TestLoggingInterface.class}, handler);
     }
 
-    static class DemoInvocationHandler implements InvocationHandler {
-        private final TestLoggingInterface myClass;
+    static class DemoInvocationHandler<T> implements InvocationHandler {
+        private final T myClass;
         private List<Method> methodsForLogs = new ArrayList<>();
 
-        DemoInvocationHandler(TestLoggingInterface myClass) {
+        DemoInvocationHandler(T myClass) {
             this.myClass = myClass;
             this.methodsForLogs = getMethodsForLogs();
         }
