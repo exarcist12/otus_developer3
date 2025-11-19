@@ -9,7 +9,7 @@ public class MainTestRun {
 
         Map<Banknote, Integer> banknotes = new HashMap<>();
         banknotes.put(Banknote.HUNDRED, 10);
-        banknotes.put(Banknote.FIVEHUNDRED, 30);
+        banknotes.put(Banknote.FIVE_HUNDRED, 30);
         banknotes.put(Banknote.THOUSAND, 40);
 
         atm.putBanknotes(banknotes);

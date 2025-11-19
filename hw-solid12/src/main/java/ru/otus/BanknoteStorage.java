@@ -6,9 +6,9 @@ public class BanknoteStorage implements IBanknoteStorage {
 
     private final EnumMap<Banknote, Integer> banknotes = new EnumMap<>(Banknote.class);
 
-    BanknoteStorage(int countHundred, int countFivehundred, int countThousand) {
+    BanknoteStorage(int countHundred, int countFiveHundred, int countThousand) {
         banknotes.put(Banknote.HUNDRED, countHundred);
-        banknotes.put(Banknote.FIVEHUNDRED, countFivehundred);
+        banknotes.put(Banknote.FIVE_HUNDRED, countFiveHundred);
         banknotes.put(Banknote.THOUSAND, countThousand);
     }
 

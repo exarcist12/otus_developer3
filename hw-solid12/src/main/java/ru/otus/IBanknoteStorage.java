@@ -2,9 +2,9 @@ package ru.otus;
 
 public interface IBanknoteStorage {
 
-    public void addBanknotes(Banknote banknote, int count);
+    void addBanknotes(Banknote banknote, int count);
 
-    public int getInfoCountBanknotes(Banknote banknote);
+    int getInfoCountBanknotes(Banknote banknote);
 
-    public void takeBanknotes(Banknote banknote, int count);
+    void takeBanknotes(Banknote banknote, int count);
 }
