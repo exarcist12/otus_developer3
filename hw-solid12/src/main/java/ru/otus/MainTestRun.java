@@ -13,5 +13,8 @@ public class MainTestRun {
         banknotes.put(Banknote.THOUSAND, 40);
 
         atm.putBanknotes(banknotes);
+        atm.takeMoney(11900);
+        atm.takeMoney(55000);
+        atm.takeMoney(11900);
     }
 }

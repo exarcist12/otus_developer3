@@ -1,37 +1,29 @@
 package ru.otus;
 
+import java.util.EnumMap;
+
 public class BanknoteStorage implements IBanknoteStorage {
 
-    private int countHundred;
-    private int countFivehundred;
-    private int countThousand;
+    private final EnumMap<Banknote, Integer> banknotes = new EnumMap<>(Banknote.class);
 
     BanknoteStorage(int countHundred, int countFivehundred, int countThousand) {
-        this.countHundred = countHundred;
-        this.countFivehundred = countFivehundred;
-        this.countThousand = countThousand;
-    }
-
-    @Override
-    public void addBanknote(Banknote banknote) {
-        if (banknote == Banknote.HUNDRED) {
-            countHundred++;
-        } else if (banknote == Banknote.FIVEHUNDRED) {
-            countFivehundred++;
-        } else if (banknote == Banknote.THOUSAND) {
-            countThousand++;
-        }
+        banknotes.put(Banknote.HUNDRED, countHundred);
+        banknotes.put(Banknote.FIVEHUNDRED, countFivehundred);
+        banknotes.put(Banknote.THOUSAND, countThousand);
     }
 
     @Override
     public int getInfoCountBanknotes(Banknote banknote) {
-        if (banknote == Banknote.HUNDRED) {
-            return countHundred;
-        } else if (banknote == Banknote.FIVEHUNDRED) {
-            return countFivehundred;
-        } else if (banknote == Banknote.THOUSAND) {
-            return countThousand;
-        }
-        return 0;
+        return banknotes.getOrDefault(banknote, 0);
+    }
+
+    @Override
+    public void addBanknotes(Banknote banknote, int count) {
+        banknotes.put(banknote, banknotes.getOrDefault(banknote, 0) + count);
+    }
+
+    @Override
+    public void takeBanknotes(Banknote banknote, int count) {
+        banknotes.put(banknote, banknotes.getOrDefault(banknote, 0) - count);
     }
 }
