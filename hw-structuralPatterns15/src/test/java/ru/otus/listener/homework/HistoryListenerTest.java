@@ -27,9 +27,9 @@ class HistoryListenerTest {
         // when
         historyListener.onUpdated(message);
 
-        message.getField13().setData(new ArrayList<>()); // меняем исходное сообщение
+        message.getField13().setData(new ArrayList<>());
 
-        field13Data.clear(); // меняем исходный список
+        field13Data.clear();
 
         // then
         var messageFromHistory = historyListener.findMessageById(id);
