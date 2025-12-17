@@ -59,7 +59,7 @@ public class JdbcDemo {
         var flyway = Flyway.configure()
                 .dataSource(URL, USER, PASSWORD)
                 .schemas()
-                .locations("classpath:/db/migration")
+                .locations("classpath:db/migration")
                 .load();
         flyway.migrate();
         logger.info("db migration finished.");
