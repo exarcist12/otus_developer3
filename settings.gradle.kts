@@ -21,3 +21,15 @@ pluginManagement {
         id("com.diffplug.spotless") version spotless
     }
 }
+include("hw-jdbs18")
+include("hw-jdbs18:demo")
+findProject(":hw-jdbs18:demo")?.name = "demo"
+include("hw-jdbs18:docker")
+findProject(":hw-jdbs18:docker")?.name = "docker"
+include("hw-jdbs18:homework")
+findProject(":hw-jdbs18:homework")?.name = "homework"
+include("hw-jdbs18")
+include("hw-jdbs18:homework2")
+findProject(":hw-jdbs18:homework2")?.name = "homework2"
+include("hw-jdbs18:homework")
+findProject(":hw-jdbs18:homework")?.name = "homework"
