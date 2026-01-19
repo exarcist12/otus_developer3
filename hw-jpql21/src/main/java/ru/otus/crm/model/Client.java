@@ -15,6 +15,7 @@ import lombok.Setter;
 public class Client implements Cloneable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name")
@@ -22,7 +23,6 @@ public class Client implements Cloneable {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "id")
-    @MapsId
     private Address address;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
